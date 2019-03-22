@@ -160,3 +160,75 @@ def area_sombreada(radio):
     areaSombreada = areaDelCirculo - areaDelCuadro
 
     return areaSombreada
+
+def contador_vocales(cadena):
+    '''
+
+    >>> contador_vocales('hola')
+    2
+
+    >>> contador_vocales('prueba')
+    3
+
+    >>> contador_vocales('fgdfghfg')
+    0
+
+    :param cadena:
+    :return:
+    '''
+
+    contador = 0
+
+    for letra in cadena:
+        if es_vocal(letra):
+            contador += 1
+    return contador
+
+def consonate(cadena):
+    '''
+
+    >>> consonate('tome')
+    2
+
+    >>> consonate('todfgtre')
+    6
+
+    >>> consonate('aeiou')
+    0
+
+    :param cadena:
+    :return:
+    '''
+
+    contador = 0
+
+    for letra in cadena:
+        if not(es_vocal(letra)):
+            contador += 1
+    return contador
+
+def contar_cadena(lista):
+    '''
+
+    >>> contar_cadena(['mama', 'hola'])
+    [4, 4]
+
+    >>> contar_cadena(['tomelosdulce', 'pere'])
+    [7, 9]
+
+    :param cadena:
+    :return:
+    '''
+
+    contadorVocal = 0
+    contadorConsonantes = 0
+    resultado = []
+
+    for elementos in lista:
+        contadorVocal += contador_vocales(elementos)
+        contadorConsonantes += consonate(elementos)
+
+    resultado.append(contadorVocal)
+    resultado.append(contadorConsonantes)
+
+    return resultado
